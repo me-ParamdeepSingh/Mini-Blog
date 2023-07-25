@@ -1,0 +1,89 @@
+<%- include('user_layouts/header') %>
+  <script src="/css/jquery-3.6.4.min.css"></script>
+
+  <div class="container">
+    <div class="container my-5">
+      <div class="alert alert-info">
+        <h1 class="text-center">
+          <%= data.title %>
+        </h1>
+      </div>
+    </div>
+
+    <form action="/user/post/update/<%= data.id %>" method="post" class="add-form" id="example">
+      <div class="row">
+        <div class="mt-4 col-lg-6">
+          <label for="text-input">Title</label>
+          <input type="text" class="form-control mt-2" name="title" id="inputName" value="<%= data.title %>"
+            placeholder="Enter text" onkeyup="validate_name()">
+          <small id="nameValidationMsg" class="form-text text-danger"></small>
+        </div>
+
+        <div class="mt-4 col-lg-6">
+          <label for="text-input">Slug</label>
+          <input type="text" class="form-control mt-2" name="slug" id="inputName" value="<%= data.title %>"
+            placeholder="Enter text" onkeyup="validate_name()">
+          <small id="nameValidationMsg" class="form-text text-danger"></small>
+        </div>
+
+        <div class="mt-4 col-lg-12">
+          <label for="email-input">Description</label><br>
+          <textarea name="description" id="" cols="80" rows="10"><%= data.description %></textarea>
+          <small id="emailValidationMsg" class="form-text text-danger"></small>
+        </div>
+
+        <div class="mt-4 col-lg-6">
+
+          <div class="form-check mx-2">
+            <label for="formFile" class="form-label">Upload image</label>
+            <input class="form-control" type="file" id="formFile" name="image">
+            <img src="/images/blog/<%= data.image%>" width="100" class="img-thumbnail">
+            </label>
+          </div>
+
+        </div>
+        <input type="hidden" name="old_image" value="<%= data.image %>">
+
+
+        <!-- <div class="mt-4 col-lg-6">
+          <label for="course">Category</label>
+          <select class="form-select mt-2 mt-2" id="course" name="course">
+            <option value="null">--Select Course--</option>
+            <option value="Web Development">Web Development</option>
+            <option value="Web Designing">Web Designing</option>
+            <option value="Graphic Designing">Graphic Designing</option>
+            <option value="Full Stack Development">Full Stack Development</option>
+          </select>
+        </div> -->
+
+
+
+        <div class="mt-4 col-lg-6">
+          <label>Status</label>
+          <div class="d-flex mt-2">
+            <div class="form-check mx-2">
+              <input class="form-check-input" type="radio" name="status" id="active" value="Active"
+                <%=data.status=="Active" ? "checked" : "" %>>
+              <label class="form-check-label" for="active">
+                Active
+              </label>
+            </div>
+            <div class="form-check mx-2">
+              <input class="form-check-input" type="radio" name="status" id="inactive" value="Inactive"
+                <%=data.status=="Inactive" ? "checked" : "" %>>
+              <label class="form-check-label" for="inactive">
+                Inactive
+              </label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-4 submit-btn" onmouseover="check_form()">Submit</button>
+
+    </form>
+
+  </div>
+
+  <%- include('user_layouts/footer') %>

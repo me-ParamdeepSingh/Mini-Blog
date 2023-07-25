@@ -1,0 +1,68 @@
+<%- include('user_layouts/header') %>
+
+
+        <div class="boxes">
+          <div class="box box3">
+            <i class="uil uil-user-check"></i>
+            <span class="text">Author</span>
+            <span class="number"><%= dbData.name %></span>
+          </div>
+          <div class="box box2">
+            <i class="ti-layers color-one text-md"></i>
+            <span class="text">My Blogs</span>
+            <span class="number"><%= data.my_blogs_count %></span>
+          </div>
+          <div class="box box1">
+            <i class="ti-layers-alt color-one"></i>
+            <span class="text">Total Blogs on MiniBlogs</span>
+            <span class="number"><%= data.blogs_count %></span>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="activity">
+        <div class="title">
+          <i class="uil uil-clock-three"></i>
+          <span class="text">Recent Activity</span>
+        </div>
+
+        <div class="activity-data">
+          <div class="data names">
+            <span class="data-title">Title</span>
+            <% data.recent_data.forEach((item)=>{ %>
+              <span class="data-list"><%= item.title %></span>
+            <% }) %>
+          </div>
+          <div class="data email">
+            <span class="data-title">Author</span>
+            <% data.recent_data.forEach((item)=>{ %>
+              <span class="data-list"><%= item.author %></span>
+            <% }) %>
+          </div>
+          <!-- <div class="data joined">
+            <span class="data-title">Joined</span>
+            <% data.recent_data.forEach((item)=>{ %>
+                <% 
+                 function formatDate(date) {
+                       var d = new Date(date),
+                           month = '' + (d.getMonth() + 1),
+                           day = '' + d.getDate(),
+                           year = d.getFullYear();
+                      
+                         if (month.length < 2) 
+                           month = '0' + month;
+                         if (day.length < 2) 
+                           day = '0' + day;
+                      
+                         return [day, month, year].join('-');
+                       }
+                %>
+              <span class="data-list"><%= formatDate(item.join) %></span>
+            <% }) %>
+          </div> -->
+        </div>
+      </div>
+    
+      
+  <%- include('user_layouts/footer') %>

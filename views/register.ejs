@@ -1,0 +1,49 @@
+
+<%- include('./base/header.ejs') %>
+    <div class="container my-5 shadow p-3 mb-5 bg-body rounded">
+        <h1 class="text-center">User Registration Form</h1>
+        <% if(typeof msg !=='undefined' ){ %>
+          <div class="sign-up-msg">
+            <%= msg %>
+          </div> 
+            <% } %>
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <form action="/user/register" method="POST">
+                    <div class="mb-3">
+                      <label for="name" class="form-label">Name</label>
+                      <input type="text" name="name" class="form-control" id="name" value="">
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="username" class="form-label">Username</label>
+                      <input type="text" name="username" class="form-control" id="username" onkeyup="checkUsername(this.value)">
+                      <!-- <br>
+                      <span class="user-name-taken">Username taken</span>
+                      <span class="user-name-available">Username Available</span> -->
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" id="email">
+                      </div>
+                      
+                      <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" id="password">
+                      </div>
+
+                      <!-- <div class="mb-3">
+                        <label for="city" class="form-label">City</label>
+                        <input type="text" name="city" class="form-control" id="city">
+                      </div> -->
+                   
+                    <button type="submit" class="btn btn-primary w-100" style="font-size: 1rem;">Submit</button>
+                  </form>
+                  <h6 class="mt-4">Already have an account: <a href="login" class="text-color">login</a></h6>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+    <%- include('./base/footer.ejs')%>

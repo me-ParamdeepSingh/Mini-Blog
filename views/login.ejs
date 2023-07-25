@@ -1,0 +1,33 @@
+<%- include('./base/header.ejs') %>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-6 shadow p-3 mb-5 bg-body rounded my-5">
+            <h4 class="text-center">Login Here</h4>
+            <% if(typeof msg !=='undefined' ){ %>
+              <div class="login-fail-msg">
+                <%= msg %> <br>
+                <% if(typeof data !=='undefined' ){ %>
+                  <a href="/resend-email/<%= data.id %>">Resend email</a>
+                <% } %>
+              </div> 
+                <% } %>
+            <form action="login" method="post">
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email address</label>
+                  <input type="email" name="email" class="form-control" id="email">
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" name="password" class="form-control" id="password">
+                </div>
+                <button type="submit" class="btn btn-primary w-100" style="font-size: 1rem;">Submit</button>
+              </form>
+
+
+              <h6 class="mt-4">don't have an account: <a href="/user/register" class="text-color">Register Yourself</a></h6>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+<%- include('./base/footer.ejs')%>

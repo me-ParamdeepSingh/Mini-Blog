@@ -1,0 +1,84 @@
+<%- include('user_layouts/header') %>
+  <script src="/css/jquery-3.6.4.min.css"></script>
+
+  <div class="container">
+    <div class="container my-5">
+      <div class="alert alert-info">
+        <h1 class="text-center">
+          <%= data.title %>
+        </h1>
+      </div>
+    </div>
+
+    <form class="add-form" id="example">
+      <div class="row">
+        <div class="mt-4 col-lg-6">
+          <label for="text-input">Title</label>
+          <input type="text" class="form-control mt-2" name="title" id="inputName" value="<%= data.title %>"
+            placeholder="Enter text" onkeyup="validate_name()" readonly>
+          <small id="nameValidationMsg" class="form-text text-danger"></small>
+        </div>
+
+        <div class="mt-4 col-lg-6">
+          <label for="text-input">Slug</label>
+          <input type="text" class="form-control mt-2" name="slug" id="inputName" value="<%= data.title %>"
+            placeholder="Enter text" onkeyup="validate_name()" readonly>
+          <small id="nameValidationMsg" class="form-text text-danger"></small>
+        </div>
+
+        <div class="mt-4 col-lg-12">
+          <label for="email-input">Description</label><br>
+          <textarea name="description" id="" cols="80" rows="10" readonly><%= data.description %></textarea>
+          <small id="emailValidationMsg" class="form-text text-danger"></small>
+        </div>
+
+        <div class="mt-4 col-lg-12">
+          <label for="email-input">Featured Image</label><br>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#fimg"><img src="/images/blog/<%= data.image%>" alt="" width="100"></a>
+          <small id="emailValidationMsg" class="form-text text-danger"></small>
+        </div>
+
+        <!-- Modal for Featured Image -->
+        <div class="modal fade" id="fimg" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"><%= data.title %> <span>(Featured image)</span></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <img src="/images/blog/<%= data.image%>" alt="" width="100%">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="mt-4 col-lg-6">
+          <label>Status</label>
+          <div class="d-flex mt-2">
+            <div class="form-check mx-2">
+              <input class="form-check-input" type="radio" name="status" id="active" value="Active" disabled
+                <%=data.status=="Active" ? "checked" : "" %>>
+              <label class="form-check-label" for="active">
+                Active
+              </label>
+            </div>
+            <div class="form-check mx-2">
+              <input class="form-check-input" type="radio" name="status" id="inactive" value="Inactive" disabled
+                <%=data.status=="Inactive" ? "checked" : "" %>>
+              <label class="form-check-label" for="inactive">
+                Inactive
+              </label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </form>
+
+  </div>
+
+  <%- include('user_layouts/footer') %>

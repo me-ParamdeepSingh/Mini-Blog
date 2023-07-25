@@ -1,0 +1,4 @@
+__v,_id,age,city,email,fail_count,is_verify,join,name,password,session_time
+0,64560afa0bc84d09e9b182a1,22,Ludhiana,princesandhu1011@gmail.com,0,true,2023-05-06T08:08:26.470Z,Prince,$2b$10$ZcujaGdwl9iE0PSEmejxIefrs.vHJkErQCUHGufKYoIvEFotkB.EC,null
+0,64566a365b087a3288f8e755,20,Las Vegas,jhonsmith5857@gmail.com,0,true,2023-05-06T14:54:46.275Z,Jhon Smith,$2b$10$cGySydeI7Dwx4Q4EgYSRj.AkjuD4.lCbGR1.oDCPr/9pVx/nbwspi,null
+0,64566a9698ffd3e21e4da784,20,Las Vegas,jhonsmith5857@gmail.com,0,true,2023-05-06T14:56:22.564Z,Jhon Smith,$2b$10$KbQc9p7PXHzxlbg0DNdfr.WnoPuH.wLM.bPKyyBO6zuCOlIu84rVG,null
