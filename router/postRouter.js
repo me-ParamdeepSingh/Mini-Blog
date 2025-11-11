@@ -9,6 +9,7 @@ import { isLogin,isLogout,registerMid } from '../middleware/userMiddleware.js';
 
 var storage = multer.diskStorage({
     destination: function(req,file,cb){
+        console.log('file:'+ file)
         cb(null,'public/images/blog')
     },
     filename: function(req,file,cb) {
@@ -26,7 +27,7 @@ postRouter.get('/add',isLogin,postController.addPage)
 postRouter.post('/add',isLogin,upload.single("image"),postController.add)
 postRouter.get('/list',isLogin,postController.list)
 postRouter.get('/update/:id',isLogin,postController.updatePage)
-postRouter.post('/update/:id',isLogin,postController.update)
+postRouter.post('/update/:id',isLogin,upload.single("image"),postController.update)
 postRouter.get('/view/:id',isLogin,postController.view)
 postRouter.get('/delete/:id',isLogin,postController.delete)
 

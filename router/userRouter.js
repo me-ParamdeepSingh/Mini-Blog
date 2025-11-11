@@ -4,7 +4,6 @@ import userController from '../controller/userController.js';
 import { isLogin,isLogout,registerMid } from '../middleware/userMiddleware.js';
 
 
-
 // routes
 
 userRouter.get('/',isLogin,userController.userPanel)

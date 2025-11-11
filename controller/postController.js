@@ -88,24 +88,33 @@ class postController {
     static update = async (req, res) => {
         try {
             const slug = slugify(req.body.slug)
-            console.log(slug)
-            const filter = { _id: req.params.id }
-            let new_img = ""
             if(req.file){
-                new_img = req.file.filename;
-                try {
-                    fs.unlinkSync('./public/images/blog/'+ req.body.old_image)
-                }catch(err){
-                    console.log(err);
-                }
+                const postData = await userPostModel.findByIdAndUpdate({ _id: req.params.id}, {$set: {title: req.body.title, slug: slug, description: req.body.description, status: req.body.status, image: req.file.filename}})
             }else{
-                new_img = req.body.old_image
+                const postData = await userPostModel.findByIdAndUpdate({ _id: req.params.id}, {$set: {title: req.body.title, slug: slug, description: req.body.description, status: req.body.status}})
             }
-            const update = { slug: slug}
-            const data = await userPostModel.findByIdAndUpdate(req.params.id, req.body);
-            const data2 = await userPostModel.findOneAndUpdate(filter, update);
-            const data3 = await userPostModel.findOneAndUpdate(filter, new_img);
-            // console.log(data)
+
+            // const slug = slugify(req.body.slug)
+            // console.log(slug)
+            // const filter = { _id: req.params.id }
+            // let new_img = ""
+            // if(req.file){
+            //     new_img = req.file.filename;
+            //     try {
+            //         fs.unlinkSync('./public/images/blog/'+ req.body.old_image)
+            //     }catch(err){
+            //         console.log(err);
+            //     }
+            //     console.log('yes')
+            // }else{
+            //     new_img = req.body.old_image
+            //     console.log(new_img)
+            // }
+            // const update = { slug: slug}
+            // const data = await userPostModel.findByIdAndUpdate(req.params.id, req.body);
+            // const data2 = await userPostModel.findOneAndUpdate(filter, update);
+            // const data3 = await userPostModel.findOneAndUpdate(filter, {image: new_img});
+            // // console.log(data)
             res.redirect('/user/post/list')
         } catch (error) {
             console.log(error)
@@ -137,8 +146,6 @@ class postController {
             console.log(error)
         }
     }
-
-
 }
 
 

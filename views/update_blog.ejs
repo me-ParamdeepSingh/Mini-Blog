@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <form action="/user/post/update/<%= data.id %>" method="post" class="add-form" id="example">
+    <form action="/user/post/update/<%= data.id %>" method="post" enctype="multipart/form-data" class="add-form" id="example">
       <div class="row">
         <div class="mt-4 col-lg-6">
           <label for="text-input">Title</label>
@@ -42,19 +42,8 @@
           </div>
 
         </div>
-        <input type="hidden" name="old_image" value="<%= data.image %>">
 
 
-        <!-- <div class="mt-4 col-lg-6">
-          <label for="course">Category</label>
-          <select class="form-select mt-2 mt-2" id="course" name="course">
-            <option value="null">--Select Course--</option>
-            <option value="Web Development">Web Development</option>
-            <option value="Web Designing">Web Designing</option>
-            <option value="Graphic Designing">Graphic Designing</option>
-            <option value="Full Stack Development">Full Stack Development</option>
-          </select>
-        </div> -->
 
 
 

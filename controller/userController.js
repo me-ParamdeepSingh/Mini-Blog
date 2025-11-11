@@ -22,7 +22,7 @@ const sendVerfifyMail = async (name, id, email) => {
             secure: false,
             auth: {
                 user: 'princesandhu1011@gmail.com',
-                pass: 'ylqgjkidlykmtdde',
+                pass: 'fljeeqjlzcdytwfw',
             },
         });
 
@@ -55,7 +55,7 @@ const sendChangePasswordMail = async (name, id, email) => {
             secure: false,
             auth: {
                 user: 'princesandhu1011@gmail.com',
-                pass: 'ylqgjkidlykmtdde',
+                pass: 'fljeeqjlzcdytwfw',
             },
         });
 

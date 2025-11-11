@@ -13,7 +13,7 @@ commonRouter.get('/icrement',(req,res)=>{
     for (let i = 0; i>10; i++) {
         console.log(i);
     }
-    res.send("chech console")
+    res.send("check console")
 });
 
 export default commonRouter;
